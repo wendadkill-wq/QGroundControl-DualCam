@@ -281,18 +281,19 @@ void VideoManager::_createVideoReceivers()
         return;
     }
 #endif
-    static const QStringList videoStreamList = {
-        "videoContent",
-        "thermalVideo"
-    };
-    for (const QString &streamName : videoStreamList) {
-        VideoReceiver *receiver = QGCCorePlugin::instance()->createVideoReceiver(this);
-        if (!receiver) {
-            continue;
-        }
-        receiver->setName(streamName);
 
-        _initVideoReceiver(receiver, _mainWindow);
+    VideoReceiver *receiver1 = QGCCorePlugin::instance()->createVideoReceiver(this);
+    if (receiver1) {
+        receiver1->setName("videoContent");
+        _videoReceivers.append(receiver1);
+        _initVideoReceiver(receiver1, _mainWindow);
+    }
+
+    VideoReceiver *receiver2 = QGCCorePlugin::instance()->createVideoReceiver(this);
+    if (receiver2) {
+        receiver2->setName("videoContent2");
+        _videoReceivers2.append(receiver2);
+        _initVideoReceiver(receiver2, _mainWindow);
     }
 }
 

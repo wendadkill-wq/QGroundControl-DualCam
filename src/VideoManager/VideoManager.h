@@ -128,6 +128,7 @@ private:
     static void _cleanupOldVideos();
 
     QList<VideoReceiver*> _videoReceivers;
+    QList<VideoReceiver*> _videoReceivers2;
     SubtitleWriter *_subtitleWriter = nullptr;
     VideoSettings *_videoSettings = nullptr;
     QQuickWindow *_mainWindow = nullptr;

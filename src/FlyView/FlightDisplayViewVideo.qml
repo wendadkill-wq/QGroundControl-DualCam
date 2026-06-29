@@ -5,6 +5,7 @@ import QGroundControl
 import QGroundControl.FlyView
 import QGroundControl.FlightMap
 import QGroundControl.Controls
+import QGroundControl.PTZ
 
 Item {
     id:     root
@@ -227,6 +228,16 @@ Item {
                 }
             }
             property int zoom: 0
+        }
+        PTZJoystick {
+            id: ptzJoystick
+
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            anchors.rightMargin: 20
+            anchors.bottomMargin: 20
+
+            z: 1000
         }
     }
 }
